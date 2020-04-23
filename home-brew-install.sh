@@ -161,7 +161,7 @@ should_install_command_line_tools() {
   if [[ -n "${HOMEBREW_ON_LINUX-}" ]]; then
     return 1
   fi
-  return 1
+  return 0
   #if version_gt "$macos_version" "10.13"; then
   #  ! [[ -e "/Library/Developer/CommandLineTools/usr/bin/git" ]]
   #else
