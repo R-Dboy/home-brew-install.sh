@@ -161,13 +161,13 @@ should_install_command_line_tools() {
   if [[ -n "${HOMEBREW_ON_LINUX-}" ]]; then
     return 1
   fi
-  return 0
-  #if version_gt "$macos_version" "10.13"; then
-  #  ! [[ -e "/Library/Developer/CommandLineTools/usr/bin/git" ]]
-  #else
-  #  ! [[ -e "/Library/Developer/CommandLineTools/usr/bin/git" ]] ||
-  #    ! [[ -e "/usr/include/iconv.h" ]]
-  #fi
+  
+  if version_gt "$macos_version" "10.15"; then
+    ! [[ -e "/Library/Developer/CommandLineTools/usr/bin/git" ]]
+  else
+    ! [[ -e "/Library/Developer/CommandLineTools/usr/bin/git" ]] ||
+      ! [[ -e "/usr/include/iconv.h" ]]
+  fi
 }
 
 get_permission() {
